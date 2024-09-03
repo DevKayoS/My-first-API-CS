@@ -10,12 +10,13 @@ public class UserController : ControllerBase
 {
     // fazendo que o programa entenda que esse endpoint is a Get
     [HttpGet]
-    public IActionResult Get()
+    [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
+    public IActionResult Get(string name, int age)
     {
         var response = new Response
         {
-            Name = "Kayo",
-            Age = 19
+            Name = name,
+            Age = age
         };
         return Ok(response);
     }
