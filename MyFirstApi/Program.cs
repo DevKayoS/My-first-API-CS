@@ -7,6 +7,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// forcando todas as urls a ficarem minusculo
+builder.Services.AddRouting(option => option.LowercaseUrls = true);
+
 var test = builder.Configuration.GetValue<int>("MyClass:Number");
 
 var app = builder.Build();
