@@ -10,14 +10,16 @@ public class UserController : ControllerBase
 {
     // fazendo que o programa entenda que esse endpoint is a Get
     [HttpGet]
-    [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
+    [Route("{id}/person/{nickname}")]
+    [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-    public IActionResult Get(string name, int age)
+    public IActionResult Get(int id, string nickname)
     {
-        var response = new Response
+        var response = new User
         {
-            Name = name,
-            Age = age
+            Id = 1,
+            Name = "Kayo",
+            Age = 19
         };
         return Ok(response);
     }
