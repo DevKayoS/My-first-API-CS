@@ -1,3 +1,6 @@
+using System.Runtime.InteropServices.JavaScript;
+using MyFirstApi.Communication.Requests;
+using MyFirstApi.Communication.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MyFirstApi.Controllers;
@@ -22,5 +25,18 @@ public class UserController : ControllerBase
             Age = 19
         };
         return Ok(response);
+    }
+    
+    [HttpPost]
+    [ProducesResponseType(typeof(ResponseRegisterUserJson), StatusCodes.Status201Created)] // tipo da resposta
+    [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+    public IActionResult Create([FromBody] RequestRegisterUserJson request)
+    {
+        var response = new ResponseRegisterUserJson
+        {
+            Id = 1,
+            name = request.Name
+        };
+        return Created(string.Empty, response);
     }
 }
