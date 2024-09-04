@@ -16,7 +16,7 @@ public class UserController : ControllerBase
     [Route("{id}")]
     [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
-    public IActionResult GetById([FromRoute]int id)
+    public IActionResult GetById([FromRoute] int id)
     {
         var response = new User
         {
@@ -26,7 +26,7 @@ public class UserController : ControllerBase
         };
         return Ok(response);
     }
-    
+
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisterUserJson), StatusCodes.Status201Created)] // tipo da resposta
     [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
@@ -39,4 +39,13 @@ public class UserController : ControllerBase
         };
         return Created(string.Empty, response);
     }
+
+    [HttpPut]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public IActionResult Update([FromBody] RequestUpdateUserProfileJson request)
+    {
+       
+        return NoContent();
+    }
+    
 }
