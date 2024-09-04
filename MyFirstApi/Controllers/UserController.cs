@@ -11,6 +11,7 @@ public class UserController : ControllerBase
     // fazendo que o programa entenda que esse endpoint is a Get
     [HttpGet]
     [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
     public IActionResult Get(string name, int age)
     {
         var response = new Response
