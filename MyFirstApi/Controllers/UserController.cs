@@ -44,8 +44,15 @@ public class UserController : ControllerBase
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public IActionResult Update([FromBody] RequestUpdateUserProfileJson request)
     {
-       
         return NoContent();
     }
+    
+    [HttpDelete]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public IActionResult Delete()
+    {
+        return NoContent();
+    }
+    
     
 }
