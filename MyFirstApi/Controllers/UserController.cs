@@ -54,5 +54,27 @@ public class UserController : ControllerBase
         return NoContent();
     }
     
+    [HttpGet]
+    [Route("all")]
+    [ProducesResponseType(typeof(List<User>),StatusCodes.Status200OK)]
+    public IActionResult GetAll()
+    {
+        var response = new List<User>()
+        {
+            new User {Id = 1, Name = "Kayo", Age = 19},
+            new User {Id = 2, Name = "Julia", Age = 19},
+            new User {Id = 3, Name = "Andreia", Age = 42}
+        };
+        return Ok(response);
+    }
+
+    [HttpPut("change-password")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public IActionResult ChangePassword([FromBody] RequestChangePasswordJson request)
+    {
+            
+        return NoContent();
+    }
+    
     
 }
