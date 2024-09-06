@@ -61,7 +61,10 @@ public class UserController : MyFirstApiBaseController
             new User {Id = 2, Name = "Julia", Age = 19},
             new User {Id = 3, Name = "Andreia", Age = 42}
         };
-        return Ok(response);
+
+        var key = GetCustomKey();
+        
+        return Ok(key);
     }
 
     [HttpPut("change-password")]

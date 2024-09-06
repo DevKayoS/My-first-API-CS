@@ -9,11 +9,9 @@ namespace MyFirstApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var laptop = new Laptop();
-
-            var brand = laptop.GetBrand();
+            var key = GetCustomKey();
             
-            return Ok(laptop.Hello()); // retornar macbook
+            return Ok(key); 
         }
     }
 }
