@@ -10,10 +10,10 @@ namespace MyFirstApi.Controllers
         public IActionResult Get()
         {
             var laptop = new Laptop();
-            
+
             var brand = laptop.GetBrand();
             
-            return Ok(brand); // retornar macbook
+            return Ok(laptop.Hello()); // retornar macbook
         }
     }
 }
